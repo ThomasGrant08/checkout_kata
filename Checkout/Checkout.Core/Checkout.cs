@@ -19,7 +19,7 @@
             {
                 if (_offerRules.TryGetValue(itemCount.Key, out var offerRule))
                 {
-                    totalPrice += offerRule.CalculatePrice(itemCount.Value);
+                    totalPrice += offerRule.CalculatePrice(itemCount.Value, _products[itemCount.Key]);
                 }
                 else
                 {
