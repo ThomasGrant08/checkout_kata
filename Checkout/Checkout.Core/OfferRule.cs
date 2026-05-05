@@ -12,6 +12,12 @@
             OfferPrice = offerPrice;
         }
 
+        /// <summary>
+        /// Takes in the number of items and the unit price, calculates the total price based on the offer rule, and returns it.
+        /// </summary>
+        /// <param name="itemCount"></param>
+        /// <param name="unitPrice"></param>
+        /// <returns></returns>
         public int CalculatePrice(int itemCount, int unitPrice)
         {
             var offerGroups = itemCount / Quantity;
