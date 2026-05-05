@@ -26,6 +26,16 @@ namespace Checkout.Tests
             Assert.That(totalPrice, Is.EqualTo(expectedPrice));
         }
 
+        [Test]
+        [TestCase("")]
+        [TestCase("E")]
+        [TestCase(null)]
+        public void Test_Scan_Invalid_Item_Should_Throw_Exception(string? sku)
+        {
+            var checkout = CreateCheckout();
+            Assert.Throws<ArgumentException>(() => checkout.Scan(sku));
+        }
+
 
         private ICheckout CreateCheckout()
         {
