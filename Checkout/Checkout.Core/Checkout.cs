@@ -19,17 +19,14 @@
 
         public int GetTotalPrice()
         {
-            var totalPrice = 0;
             var itemCounts = _items.GroupBy(sku => sku).ToDictionary(group => group.Key, group => group.Count());
-            foreach (var itemCount in itemCounts)
-            {
-                totalPrice +=
-                    _offerRules.TryGetValue(itemCount.Key, out var offerRule) ?
-                    offerRule.CalculatePrice(itemCount.Value, _products[itemCount.Key]) :
-                    itemCount.Value * _products[itemCount.Key];
-            }
 
-            return totalPrice;
+            return itemCounts.Sum(
+                i =>
+                _offerRules.TryGetValue(i.Key, out var offerRule) ?
+                offerRule.CalculatePrice(i.Value, _products[i.Key]) :
+                i.Value * _products[i.Key]
+            );
         }
     }
 }
