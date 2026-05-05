@@ -5,6 +5,13 @@ namespace Checkout.Tests
     {
         [Test]
         [TestCase(new[] { "A" }, 50)]
+        [TestCase(new[] { "B" }, 30)]
+        [TestCase(new[] { "C" }, 20)]
+        [TestCase(new[] { "D" }, 15)]
+        [TestCase(new[] { "A", "B", "C", "D" }, 115)]
+        [TestCase(new[] { "A", "A", "A" }, 130)]
+        [TestCase(new[] { "B", "B" }, 45)]
+        [TestCase(new[] { "A", "A", "A", "A" }, 180)]
         public void Test_Scan_Items_And_Get_Total_Price(string[] skus, int expectedPrice)
         {
             var checkout = CreateCheckout();
