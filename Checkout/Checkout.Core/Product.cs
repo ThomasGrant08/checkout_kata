@@ -3,12 +3,12 @@
     public class Product
     {
         public string Sku { get; set; }
-        public int Price { get; set; }
+        public int UnitPrice { get; set; }
 
-        public Product(string sku, int price)
+        public Product(string sku, int unitPrice)
         {
             Sku = sku;
-            Price = price;
+            UnitPrice = unitPrice;
         }
     }
 }
