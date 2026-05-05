@@ -15,7 +15,7 @@
         /// <summary>
         /// Adds an item to the current scan session using the specified SKU.
         /// </summary>
-        /// <param name="sku">The SKU identifier of the item to add. Cannot be null.</param>
+        /// <param name="sku">The SKU identifier of the item to add. Cannot be null or empty</param>
         public void Scan(string sku)
         {
             if (string.IsNullOrEmpty(sku))

@@ -8,7 +8,7 @@
         /// <summary>
         /// Scans an item by its SKU and adds it to the checkout.
         /// </summary>
-        /// <param name="sku"></param>
+        /// <param name="sku">The SKU identifier of the item to add. Cannot be null or empty.</param>
         void Scan(string sku);
 
         /// <summary>
