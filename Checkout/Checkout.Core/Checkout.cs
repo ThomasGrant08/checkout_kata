@@ -17,15 +17,12 @@
             var itemCounts = _items.GroupBy(sku => sku).ToDictionary(group => group.Key, group => group.Count());
             foreach (var itemCount in itemCounts)
             {
-                if (_offerRules.TryGetValue(itemCount.Key, out var offerRule))
-                {
-                    totalPrice += offerRule.CalculatePrice(itemCount.Value, _products[itemCount.Key]);
-                }
-                else
-                {
-                    totalPrice += itemCount.Value * _products[itemCount.Key];
-                }
+                totalPrice +=
+                    _offerRules.TryGetValue(itemCount.Key, out var offerRule) ?
+                    offerRule.CalculatePrice(itemCount.Value, _products[itemCount.Key]) :
+                    itemCount.Value * _products[itemCount.Key];
             }
+
             return totalPrice;
         }
     }
