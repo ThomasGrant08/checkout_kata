@@ -8,6 +8,12 @@
 
         public void Scan(string sku)
         {
+            if (string.IsNullOrEmpty(sku))
+                throw new ArgumentException("SKU cannot be null or empty.", nameof(sku));
+
+            if (!_products.ContainsKey(sku))
+                throw new ArgumentException("SKU does not exist in the product list.", nameof(sku));
+
             _items.Add(sku);
         }
 
