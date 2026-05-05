@@ -13,5 +13,12 @@
             Quantity = quantity;
             OfferPrice = offerPrice;
         }
+
+        public int CalculatePrice(int quantity)
+        {
+            int offerCount = quantity / Quantity;
+            int remainingCount = quantity % Quantity;
+            return offerCount * OfferPrice + remainingCount * UnitPrice;
+        }
     }
 }
