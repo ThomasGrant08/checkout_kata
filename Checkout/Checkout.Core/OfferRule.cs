@@ -6,10 +6,10 @@
         public int UnitPrice { get; set; }
         public int Quantity { get; set; }
         public int OfferPrice { get; set; }
-        public OfferRule(string sku, int unitPrice, int quantity, int offerPrice)
+        public OfferRule(Product product, int quantity, int offerPrice)
         {
-            Sku = sku;
-            UnitPrice = unitPrice;
+            Sku = product.Sku;
+            UnitPrice = product.UnitPrice;
             Quantity = quantity;
             OfferPrice = offerPrice;
         }
